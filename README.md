@@ -14,7 +14,9 @@ Stack technologies:
 
 *   Install project: npm i
 
-*   Start project: npm run dev
+*   Start project(server and view layers): npm run start
+
+*   Start project(only view layer): npm run dev
     (starting in: http://localhost:8080)
 
 *   Start ssr: npm run server
