@@ -27,7 +27,7 @@ class ArticlesList extends Component {
 	}
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = state => {
 	return {
 		articles: state.articlesReducer
 	}

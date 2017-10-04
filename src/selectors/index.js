@@ -35,6 +35,6 @@ export const commentSelectorFactory = () => createSelector(commentsGetter, idGet
 const articleState = state => state.articlesReducer
 const articlesOwnPropsId = (state, props) => props
 
-export const articlesSelector = createSelector(articleState, articlesOwnPropsId, (articleState, ownPropsId) => {
+export const articlesSelector = () => createSelector(articleState, articlesOwnPropsId, (articleState, ownPropsId) => {
 	return articleState.filter(item => item.id === ownPropsId)
 })

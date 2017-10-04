@@ -23,10 +23,14 @@ class Article extends Component {
 	}
 }
 
-let mapStateToProps = (state, ownProps) => {
-	let ownPropsId = ownProps.id
-	return {
-		article: articlesSelector(state, ownPropsId)
+let mapStateToProps = () => {
+	let artSelector = articlesSelector()
+
+	return (state, ownProps) => {
+		let ownPropsId = ownProps.id
+		return {
+			article: artSelector(state, ownPropsId)
+		}
 	}
 }
 

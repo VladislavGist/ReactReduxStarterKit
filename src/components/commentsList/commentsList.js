@@ -4,7 +4,9 @@ import {connect} from "react-redux"
 //actions
 import {getComments} from "../../redux/actions/commentsActions"
 
+//components
 import Comment from "../comment/comment"
+import FormComment from "../formComments/formComments"
 
 class CommentsList extends Component {
 
@@ -29,6 +31,7 @@ class CommentsList extends Component {
 						return <Comment key={elem.id} user={elem.user} text={elem.text} />
 					}) : ""
 				}
+				<FormComment />
 			</div>
 		)
 	}
