@@ -7,7 +7,7 @@ import {store} from "./redux/store/store"
 
 // //components
 import App from "./app"
-import Dashboard from "./components/dashboard/dashboard"
+import ArticlesList from "./components/articlesList/articlesList"
 
 class Routing extends Component {
 
@@ -32,7 +32,7 @@ class Routing extends Component {
 			<Provider store={store}>
 				<Router history={::this.history()}>
 					<Route component={App}>
-						<indexRoute path="/" component={Dashboard} />
+						<indexRoute path="/" component={ArticlesList} />
 					</Route>
 				</Router>
 			</Provider>

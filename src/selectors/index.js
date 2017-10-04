@@ -29,3 +29,12 @@ const idGetter = (state, props) => props.id
 export const commentSelectorFactory = () => createSelector(commentsGetter, idGetter, (commentsList, idGetter) => {
 	return commentsList[idGetter]
 })
+
+//селектор статей
+
+const articleState = state => state.articlesReducer
+const articlesOwnPropsId = (state, props) => props
+
+export const articlesSelector = createSelector(articleState, articlesOwnPropsId, (articleState, ownPropsId) => {
+	return articleState.filter(item => item.id === ownPropsId)
+})
