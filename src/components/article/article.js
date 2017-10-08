@@ -28,6 +28,7 @@ let mapStateToProps = () => {
 
 	return (state, ownProps) => {
 		let ownPropsId = ownProps.id
+
 		return {
 			article: artSelector(state, ownPropsId)
 		}

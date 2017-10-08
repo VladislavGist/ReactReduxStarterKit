@@ -32,9 +32,13 @@ export const commentSelectorFactory = () => createSelector(commentsGetter, idGet
 
 //селектор статей
 
-const articleState = state => state.articlesReducer
+import {fromJS} from "immutable"
+
+//пришедшие данные в selector делаю глубого иммутабельными через fromJS()
+const articleState = state => fromJS(state.articlesReducer).get("entities")
 const articlesOwnPropsId = (state, props) => props
 
+//createSelector сравнивает articleState с предыдушим глубоко иммутабельным элементом
 export const articlesSelector = () => createSelector(articleState, articlesOwnPropsId, (articleState, ownPropsId) => {
 	return articleState.filter(item => item.id === ownPropsId)
 })

@@ -1,25 +1,24 @@
-import {GET_ARTICLES} from "../constants/articlesConstants"
+import {GET_ARTICLES, START, SUCCESS} from "../constants/articlesConstants"
 
-import {Map} from "immutable"
+import {Map, List} from "immutable"
 
-const articlesReducer = (state = [], action) => {
+const defaultState = Map({
+	loading: false,
+	loaded: false,
+	entities: List()
+})
 
-
-	//Immutable.js. Делает данные не изменяемыми. При изменении объекта или массива всегда возвращает новый объект или массив
-	//иммутабельна только на верхнем уровне
-
-	//create object
-	//let map1 = new Immutable.Map({a: 1, b: 2, c: []})
-
-	//get state
-	//map1.get("a")
-
-	//update
-	//mep1.set("a", 10)
+const articlesReducer = (state = defaultState, action) => {
 
 	switch(action.type) {
-	case GET_ARTICLES:
-		return action.payload
+	case GET_ARTICLES + START:
+		return state.set("loading", true)
+	case GET_ARTICLES + SUCCESS:
+		return state
+			.set("entities", action.payload)
+			.set("loading", false)
+			.set("loaded", true)
+
 	default:
 		return state
 	}

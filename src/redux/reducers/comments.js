@@ -1,15 +1,14 @@
 import {GET_COMMENTS} from "../constants/commentsConstants"
 
-const comments = (state = {}, action) => {
+import {OrderedMap} from "immutable"
+
+const comments = (state = OrderedMap(), action) => {
 
 	let {payload} = action
 
 	switch(action.type) {
 	case GET_COMMENTS:
-		return {
-			...state,
-			[action.id]: payload
-		}
+		return state.set([action.id], payload)
 	default:
 		return state
 	}

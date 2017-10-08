@@ -6,17 +6,27 @@ import {getArticles} from "../../redux/actions/articlesActions"
 
 //components
 import Article from "../article/article"
+import Counter from "../counter/counter"
+import Loader from "../loader/loader"
+
+// import {List, is, fromJS} from "immutable"
 
 class ArticlesList extends Component {
 	componentDidMount() {
-		this.props.getArticles()
+		const {loading, loaded, getArticles} = this.props
+		if(!loading || !loaded) {
+			getArticles()
+		}
 	}
 
 	render() {
 		let articleLength = Object.keys(this.props.articles).length
-		console.log("-- update ArticlesList")
+		if(this.props.loading) {
+			return <Loader />
+		}
 		return (
 			<div className="dashboard">
+				<Counter />
 				{
 					articleLength > 0 ? this.props.articles.map(elem => {
 						return <Article id={elem.id} key={elem.id} />
@@ -29,7 +39,9 @@ class ArticlesList extends Component {
 
 let mapStateToProps = state => {
 	return {
-		articles: state.articlesReducer
+		articles: state.articlesReducer.get("entities"),
+		loading: state.articlesReducer.get("loading"),
+		loaded: state.articlesReducer.get("loaded")
 	}
 }
 

@@ -68,7 +68,7 @@ class CommentsList extends Component {
 
 let mapStateToProps = (state, ownProps) => {
 	return {
-		commentsList: state.comments[ownProps.id]
+		commentsList: state.comments.toJS()[ownProps.id]
 	}
 }
 
