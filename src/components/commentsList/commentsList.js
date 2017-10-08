@@ -7,6 +7,7 @@ import {getComments} from "../../redux/actions/commentsActions"
 //components
 import Comment from "../comment/comment"
 import FormComment from "../formComments/formComments"
+import Loader from "../loader/loader"
 
 class CommentsList extends Component {
 
@@ -19,21 +20,30 @@ class CommentsList extends Component {
 			isOpen: true
 		})
 
-		this.props.getComments(this.props.id)
+		//чтобы не загружать загруженные комменты повторно
+		if(this.props.commentsList === undefined) {
+			this.props.getComments(this.props.id)
+		}
 	}
 
 	showComments() {
 		let {commentsList} = this.props
-		return (
-			<div>
-				{
-					commentsList !== undefined ? commentsList.map(elem => {
-						return <Comment key={elem.id} user={elem.user} text={elem.text} />
-					}) : ""
-				}
-				<FormComment />
-			</div>
-		)
+
+		//если есть св-во loading, то показываем лоадер
+		if(this.props.commentsList.loading !== undefined) {
+			return <Loader />
+		} else {
+			return (
+				<div>
+					{
+						commentsList !== undefined ? commentsList.map(elem => {
+							return <Comment key={elem.id} user={elem.user} text={elem.text} />
+						}) : ""
+					}
+					<FormComment />
+				</div>
+			)
+		}
 	}
 
 	hideComments() {
