@@ -1,5 +1,5 @@
 import {GET_COMMENTS} from "../constants/commentsConstants"
-import {START, SUCCESS} from "../constants/articlesConstants"
+import {START, SUCCESS, FAIL} from "../constants/articlesConstants"
 
 export const getComments = id => {
 	return dispatch => {
@@ -16,6 +16,11 @@ export const getComments = id => {
 					type: GET_COMMENTS + SUCCESS,
 					id: id,
 					payload: response
+				})
+			})
+			.catch(() => {
+				dispatch({
+					type: GET_COMMENTS + FAIL
 				})
 			})
 		}, 1400)

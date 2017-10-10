@@ -9,6 +9,8 @@ import Article from "../article/article"
 import Counter from "../counter/counter"
 import Loader from "../loader/loader"
 
+import styles from "./articleList.sass"
+
 // import {List, is, fromJS} from "immutable"
 
 class ArticlesList extends Component {
@@ -25,7 +27,7 @@ class ArticlesList extends Component {
 			return <Loader />
 		}
 		return (
-			<div className="dashboard">
+			<div className={styles.elem}>
 				<Counter />
 				{
 					articleLength > 0 ? this.props.articles.map(elem => {

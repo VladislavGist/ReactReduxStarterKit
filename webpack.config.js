@@ -37,7 +37,23 @@ const webpackConfig = {
 				use: ["css-hot-loader"].concat(ExtractTextPlugin.extract({
 					publicPath: "../",
 					fallback: "style-loader",
-					use: ["css-loader", "sass-loader"]
+					use: [{
+						loader: "css-loader",
+						options: {
+							importLoaders: 1,
+							modules: true,
+							localIdentName: "[name]__[local]___[hash:base64:5]"
+						}
+					}, "sass-loader",
+					{
+						loader: require.resolve("postcss-loader"),
+						options: {
+							ident: "postcss",
+							plugins: () => [
+								require("postcss-flexbugs-fixes")
+							]
+						}
+					}]
 				}))
 			},
 			{

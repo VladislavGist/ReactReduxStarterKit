@@ -30,8 +30,10 @@ class CommentsList extends Component {
 		let {commentsList} = this.props
 
 		//если есть св-во loading, то показываем лоадер
-		if(this.props.commentsList.loading !== undefined) {
+		if(this.props.commentsList.loading === true) {
 			return <Loader />
+		} else if(this.props.commentsList.loading === false) {
+			return <div>Error loading</div>
 		} else {
 			return (
 				<div>
