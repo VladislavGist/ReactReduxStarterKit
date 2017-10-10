@@ -6,11 +6,11 @@ import {replaceNumber} from "../../redux/actions/firstActions"
 
 class Counter extends Component {
 
-	increment() {
+	increment = () => {
 		this.props.replaceNumber(this.props.cnt + 1)
 	}
 
-	decrement() {
+	decrement = () => {
 		this.props.replaceNumber(this.props.cnt - 1)
 	}
 
@@ -18,8 +18,8 @@ class Counter extends Component {
 		return (
 			<div>
 				Counter: {this.props.cnt}
-				<button onClick={::this.increment}>Increment</button>
-				<button onClick={::this.decrement}>Decrement</button>
+				<button onClick={this.increment}>Increment</button>
+				<button onClick={this.decrement}>Decrement</button>
 			</div>
 		)
 	}

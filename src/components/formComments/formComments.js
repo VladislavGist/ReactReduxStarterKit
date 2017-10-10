@@ -7,7 +7,7 @@ class FormComment extends Component {
 		text: ""
 	}
 
-	onChangeValue(e) {
+	onChangeValue = e => {
 		let stateElem = e.target.getAttribute("data-state")
 
 		// let minLength = e.target.getAttribute("data-minLength")
@@ -34,7 +34,7 @@ class FormComment extends Component {
 					data-maxLength={15}
 					value={this.state.userName}
 					data-state="userName"
-					onChange={::this.onChangeValue} />
+					onChange={this.onChangeValue} />
 
 				<textarea
 					name=""
@@ -46,7 +46,7 @@ class FormComment extends Component {
 					value={this.state.text}
 					data-state="text"
 					placeholder="Text"
-					onChange={::this.onChangeValue} />
+					onChange={this.onChangeValue} />
 
 				<a href="javascript:void(0)">Submit</a>
 			</form>

@@ -27,14 +27,14 @@ class ArticlesList extends Component {
 			return <Loader />
 		}
 		return (
-			<div className={styles.elem}>
+			<section className={styles.elem}>
 				<Counter />
 				{
 					articleLength > 0 ? this.props.articles.map(elem => {
 						return <Article id={elem.id} key={elem.id} />
 					}) : "No articles"
 				}
-			</div>
+			</section>
 		)
 	}
 }

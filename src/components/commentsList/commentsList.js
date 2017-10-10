@@ -15,7 +15,7 @@ class CommentsList extends Component {
 		isOpen: false
 	}
 
-	getComments() {
+	getComments = () => {
 		this.setState({
 			isOpen: true
 		})
@@ -26,7 +26,7 @@ class CommentsList extends Component {
 		}
 	}
 
-	showComments() {
+	showComments = () => {
 		let {commentsList} = this.props
 
 		//если есть св-во loading, то показываем лоадер
@@ -48,20 +48,20 @@ class CommentsList extends Component {
 		}
 	}
 
-	hideComments() {
+	hideComments = () => {
 		this.setState({
 			isOpen: false
 		})
 	}
 
-	getContent() {
+	getContent = () => {
 		return(
 			<div>
 				{
-					this.state.isOpen ? ::this.showComments() : ""
+					this.state.isOpen ? this.showComments() : ""
 				}
 				{
-					this.state.isOpen ? <button onClick={::this.hideComments}>Hide comments</button> : <button onClick={::this.getComments}>Show comments</button>
+					this.state.isOpen ? <button onClick={this.hideComments}>Hide comments</button> : <button onClick={this.getComments}>Show comments</button>
 				}
 			</div>
 		)
@@ -71,7 +71,7 @@ class CommentsList extends Component {
 		return (
 			<div>
 				{
-					this.props.comments.length > 0 ? ::this.getContent() : "No comments"
+					this.props.comments.length > 0 ? this.getContent() : "No comments"
 				}
 			</div>
 		)
