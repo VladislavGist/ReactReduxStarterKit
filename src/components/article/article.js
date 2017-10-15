@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
 
-import style from "./article.sass"
+import "./article.sass"
 
 //components
 import CommentsList from "../commentsList/commentsList"
@@ -17,7 +17,7 @@ class Article extends Component {
 		let {title, comments = []} = this.props.article[0]
 
 		return (
-			<div className={style.elem}>
+			<div className="elem">
 				<h3>{title}</h3>
 				<CommentsList id={this.props.id} comments={comments} />
 			</div>

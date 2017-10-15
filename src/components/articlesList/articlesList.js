@@ -9,7 +9,7 @@ import Article from "../article/article"
 import Counter from "../counter/counter"
 import Loader from "../loader/loader"
 
-import styles from "./articleList.sass"
+import "./articleList.sass"
 
 // import {List, is, fromJS} from "immutable"
 
@@ -27,7 +27,11 @@ class ArticlesList extends Component {
 			return <Loader />
 		}
 		return (
-			<section className={styles.elem}>
+			<section>
+				<iframe
+					src="http://localhost:3001/api/article"
+					className="frame"
+				></iframe>
 				<Counter />
 				{
 					articleLength > 0 ? this.props.articles.map(elem => {

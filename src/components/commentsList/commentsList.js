@@ -9,6 +9,8 @@ import Comment from "../comment/comment"
 import FormComment from "../formComments/formComments"
 import Loader from "../loader/loader"
 
+import "./commentList.sass"
+
 class CommentsList extends Component {
 
 	state = {
