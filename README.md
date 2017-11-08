@@ -17,5 +17,5 @@ Stack technologies:
     (starting in: http://localhost:8080)
 
 Look:
-Add jsx img path: <img src={require("../images/webpack-icon.svg")} alt=""/>
-Add sass img: background: url("../images/webpack-icon.svg")
+    *  Add jsx img path: <img src={require("../images/webpack-icon.svg")} alt=""/>
+    *  Add sass img: background: url("../images/webpack-icon.svg")
