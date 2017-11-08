@@ -16,9 +16,6 @@ Stack technologies:
 *   Start project(only view layer): npm run dev
     (starting in: http://localhost:8080)
 
-*   Start ssr: npm run server
-    (starting in: http://localhost:8081)
-
 Look:
 Add jsx img path: <img src={require("../images/webpack-icon.svg")} alt=""/>
 Add sass img: background: url("../images/webpack-icon.svg")
