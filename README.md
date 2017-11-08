@@ -14,8 +14,8 @@ Stack technologies:
 Commands
 --------
 * Install project: npm i
-* Start project(server and view layers): npm run start
-* Start project(only view layer): npm run dev (starting in: http://localhost:8080)
+* Start project: npm run dev (starting in: http://localhost:8080)
+* Build project: npm run build
 
 Look
 ----
