@@ -1,4 +1,4 @@
-This is template.
+h1 This is template.
 
 Stack technologies:
     React 15
@@ -16,6 +16,6 @@ Stack technologies:
 *   Start project(only view layer): npm run dev
     (starting in: http://localhost:8080)
 
-Look:
+Look
     *  Add jsx img path: <img src={require("../images/webpack-icon.svg")} alt=""/>
     *  Add sass img: background: url("../images/webpack-icon.svg")
