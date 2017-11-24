@@ -1,8 +1,9 @@
-import React, {Component} from "react"
-import {connect} from "react-redux"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 //actions
-import {replaceNumber} from "../../redux/actions/firstActions"
+import { actions as counterActions } from '../../ducks/counter'
 
 class Counter extends Component {
 
@@ -17,18 +18,20 @@ class Counter extends Component {
 	render() {
 		return (
 			<div>
-				Counter: {this.props.cnt}
-				<button onClick={this.increment}>Increment</button>
-				<button onClick={this.decrement}>Decrement</button>
+				Counter: { this.props.cnt }
+				<button onClick={ this.increment }>Increment</button>
+				<button onClick={ this.decrement }>Decrement</button>
 			</div>
 		)
 	}
 }
 
-let mapStateToProps = state => {
+const mapStateToProps = state => {
 	return {
-		cnt: state.firstReducer.get("cnt")
+		cnt: state.firstReducer.get('cnt')
 	}
 }
 
-export default connect(mapStateToProps, {replaceNumber})(Counter)
+const mapDispatchToProps = dispatch => bindActionCreators(counterActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

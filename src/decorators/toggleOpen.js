@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from 'react'
 
 export default OriginalComponent => class WeappedComponent extends Component {
 	state = {
@@ -6,12 +6,10 @@ export default OriginalComponent => class WeappedComponent extends Component {
 	}
 
 	getOpenArticle(idElem) {
-		this.setState({
-			isOpenId: idElem
-		})
+		this.setState({ isOpenId: idElem })
 	}
 
 	render() {
-		return <OriginalComponent {...this.props} {...this.state} getOpenArticle={::this.getOpenArticle} />
+		return <OriginalComponent { ...this.props } { ...this.state } getOpenArticle={ ::this.getOpenArticle } />
 	}
 }
